@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+void insertionSort(int numbers[], int numbersSize);
+
+int main() {
+   int numbers[100] = { 10, 2, 78, 4, 45, 32, 7, 11, 25, 1 };
+   int length = 10;
+   int i;
+   
+   cout << "UNSORTED: ";
+   for(i = 0; i < length; ++i) {
+      cout << numbers[i] << " ";
+   }
+   cout << endl;
+   
+   insertionSort(numbers, length); //The function 
+   
+   cout << "  SORTED: ";
+   for(i = 0; i < length; ++i) {
+      cout << numbers[i] << " ";
+   }
+   cout << endl;
+   
+   return 0;
+}
+
+void insertionSort(int numbers[], int numbersSize) {
+   
+   for (int i = 1; i < numbersSize; ++i) {
+      int key = numbers[i];
+      int j = i - 1;
+      
+      while (j >= 0 && numbers[j] > key){
+         numbers[j+1] = numbers[j];
+         j = j - 1;
+      }
+      numbers[j+1] = key;
+ 
+   }
+}
